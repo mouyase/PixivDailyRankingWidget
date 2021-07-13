@@ -20,7 +20,7 @@ export default {
     }
   },
   created() {
-    this.$http.get("https://mokeyjay.yojigen.tech/api/pixiv/storage/app/pixiv.json", {}).then(response => {
+    this.$http.get("https://mokeyjay.yojigen.tech/pixiv/storage/app/pixiv.json", {}).then(response => {
       for (let i = 0; i < response.data.image.length; i++) {
         this.pixivData.push({
           key: i,
