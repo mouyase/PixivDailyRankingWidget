@@ -1,4 +1,4 @@
-# pixivdailyrankingwidget
+# PixivDailyRankingWidget
 
 ## Project setup
 ```
