@@ -4,6 +4,8 @@
       <div v-for="pixivItem in pixivData" v-if="pixivItem.key === nowIndex" :key="pixivItem.key"
            @click="goToOrigin(pixivItem)">
         <img :src="pixivItem.image"/>
+        <img v-show="false" v-if="pixivItem.key < pixivData.length - 1"
+             :src="pixivData[pixivItem.key + 1].image"/>
       </div>
     </transition>
   </div>
@@ -30,7 +32,9 @@ export default {
       }
       this.$nextTick(() => {
         this.waitRepeat(5000, () => {
-          this.nowIndex = this.nowIndex >= this.pixivData.length - 1 ? 0 : this.nowIndex + 1
+          this.$nextTick(() => {
+            this.nowIndex = this.nowIndex >= this.pixivData.length - 1 ? 0 : this.nowIndex + 1
+          })
         })
       })
     })
